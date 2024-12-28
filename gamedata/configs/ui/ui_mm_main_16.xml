@@ -6,7 +6,7 @@
 		<auto_static x="80" y="220" width="256" height="64" stretch="1">
 			<texture>ui\oxr_splash</texture>
 		</auto_static>
-    </background>
+  </background>
 
 	<shniaga_wnd x="90" y="290" width="392" height="380">
 		<buttons_region x="8" y="0" width="220" height="380" always_show_scroll="false" vert_interval="12.5"/>
@@ -20,42 +20,46 @@
 
 	</shniaga_wnd>
 
-	<button h="24"/>
+  <button h="24"/>
 
-	<menu_main btn_height="34" font="graffiti19" a="255" r="240" g="240" b="240">
-		<btn name="btn_newgame"		caption="ui_mm_newgame" />
+	<menu_main btn_height="34" font="graffiti22">
+    	<btn name="btn_new_game"	caption="ui_mm_newgame" />
 		<btn name="btn_load"		caption="ui_mm_load_game" />
-		<btn name="btn_lastsave"	caption="ui_mm_last_save" />
+		<btn name="btn_net_game"	caption="ui_mm_network_game" />
 		<btn name="btn_options"		caption="ui_mm_options_n" />
-		<btn name="btn_mcm"			caption="ui_mm_menu_mcm" />
+		<btn name="btn_credits"		caption="ui_mm_credits" />
 		<btn name="btn_quit"		caption="ui_mm_quit2windows" />
 	</menu_main>
 
-	<menu_network_game btn_height="30" font="graffiti19" a="255" r="240" g="240" b="240">
-		<btn name="btn_internet"	caption="ui_mp_internet" />
-		<btn name="btn_localnet"	caption="ui_mp_localnet" />
-		<btn name="btn_new_back"    caption="ui_mm_back" />
-	</menu_network_game>
+  <menu_network_game btn_height="34" font="graffiti22">
+    <btn name="btn_internet"		caption="ui_mp_internet" />
+    <btn name="btn_localnet"		caption="ui_mp_localnet" />
+    <btn name="btn_new_back"    caption="ui_mm_back" />
+  </menu_network_game>
 
-	<menu_main_logout btn_height="30" font="graffiti19" a="255" r="240" g="240" b="240">
-		<btn name="btn_newgame"	  	caption="ui_mm_newgame" />
-		<btn name="btn_load"		caption="ui_mm_load_game" />
-		<btn name="btn_logout"		caption="ui_mm_logout" />
-		<btn name="btn_options"		caption="ui_mm_options_n" />
-		<btn name="btn_mcm"			caption="ui_mm_menu_mcm" />		
-		<btn name="btn_quit"		caption="ui_mm_quit2windows" />
-	</menu_main_logout>
+  <menu_main_logout btn_height="34" font="graffiti22">
+  	<btn name="btn_new_game"	  caption="ui_mm_newgame" />
+		<btn name="btn_load"		  caption="ui_mm_load_game" />
+		<btn name="btn_multiplayer"	  caption="ui_mm_network_game" />
+		<btn name="btn_logout"		  caption="ui_mm_logout" />
+		<btn name="btn_options"		  caption="ui_mm_options_n" />
+		<btn name="btn_credits"		  caption="ui_mm_credits" />
+		<btn name="btn_quit"		    caption="ui_mm_quit2windows" />
+  </menu_main_logout>
 
-	<menu_main_last_save btn_height="30" font="graffiti19" a="255" r="240" g="240" b="240">
-		<btn name="btn_newgame"		caption="ui_mm_newgame" />
+
+
+  <menu_main_last_save btn_height="34" font="graffiti22">
+		<btn name="btn_new_game"	caption="ui_mm_newgame" />
 		<btn name="btn_load"		caption="ui_mm_load_game" />
 		<btn name="btn_lastsave"	caption="ui_mm_last_save" />
+		<btn name="btn_net_game"	caption="ui_mm_network_game" />
 		<btn name="btn_options"		caption="ui_mm_options_n" />
-		<btn name="btn_mcm"			caption="ui_mm_menu_mcm" />
+		<btn name="btn_credits"		caption="ui_mm_credits" />
 		<btn name="btn_quit"		caption="ui_mm_quit2windows" />
 	</menu_main_last_save>
 
-	<menu_new_game btn_height="34" font="graffiti19" a="255" r="240" g="240" b="240">
+	<menu_new_game btn_height="34" font="graffiti22">
 	    <btn name="btn_novice"		caption="ui_mm_novice" />
 		<btn name="btn_stalker"		caption="ui_mm_stalker" />
 		<btn name="btn_veteran"		caption="ui_mm_veteran" />
@@ -63,49 +67,39 @@
 		<btn name="btn_new_back"	caption="ui_mm_back" />
 	</menu_new_game>
 
-	<menu_main_single btn_height="34" font="graffiti19" a="255" r="240" g="240" b="240">
+	<menu_main_single btn_height="34" font="graffiti22">
     	<btn name="btn_ret"			caption="ui_mm_return_game" />
 		<btn name="btn_lastsave"	caption="ui_mm_last_save" />
 		<btn name="btn_load"		caption="ui_mm_load_game" />
 		<btn name="btn_save"		caption="ui_mm_save_game" />
 		<btn name="btn_options"		caption="ui_mm_options_n" />
-		<btn name="btn_mcm"			caption="ui_mm_menu_mcm" />
+		<btn name="btn_credits"		caption="ui_mm_credits" />
 		<btn name="btn_quit_to_mm"	caption="ui_mm_quit_game" />
 		<btn name="btn_quit"		caption="ui_mm_quit2windows" />
 	</menu_main_single>
 
-	<menu_main_single_dead btn_height="34" font="graffiti19" a="255" r="240" g="240" b="240">
+	<menu_main_single_dead btn_height="34" font="graffiti22">
 	    <btn name="btn_lastsave"	caption="ui_mm_last_save" />
 		<btn name="btn_load"		caption="ui_mm_load_game" />
 		<btn name="btn_options"		caption="ui_mm_options_n" />
-		<btn name="btn_mcm"			caption="ui_mm_menu_mcm" />
+		<btn name="btn_credits"		caption="ui_mm_credits" />
 		<btn name="btn_quit_to_mm"	caption="ui_mm_quit_game" />
 		<btn name="btn_quit"		caption="ui_mm_quit2windows" />
 	</menu_main_single_dead>
 
-	<menu_main_mm btn_height="34" font="graffiti19" a="255" r="240" g="240" b="240">
+	<menu_main_mm btn_height="34" font="graffiti22">
 	    <btn name="btn_ret"         caption="ui_mm_return_game" />
-		<btn name="btn_options"		caption="ui_mm_options_n" />
-		<btn name="btn_mcm"			caption="ui_mm_menu_mcm" />
+	    <btn name="btn_options"     caption="ui_mm_options_n" />
+	    <btn name="btn_credits"     caption="ui_mm_credits" />
 	    <btn name="btn_quit_to_mm"  caption="ui_mm_disconnect" />
 	    <btn name="btn_quit"        caption="ui_mm_quit2windows" />
 	</menu_main_mm>
 
 	<menu_sound random="0" >
-		<whell_click>ui_menu_click</whell_click>
-		<menu_music>music\ReBorn Theme</menu_music>->
+		<menu_music>music\ReBorn Theme</menu_music>
     </menu_sound>
 
-	<static_version x="14" y="740">
-		<text align="l" font="letterica16" r="0" g="0" b="0" complex_mode="0"/>
+	<static_version x="14" y="740" width="80" height="30">
+		<text align="l" font="graffiti19" r="135" g="123" b="116" complex_mode="0"/>
 	</static_version>
-	
-	<msg_wnd x="0" y="0" width="210" height="100">
-	    <background x="0" y="0" width="210" height="100">
-		    <texture>ui_icons_PDA_tooltips</texture>
-	    </background>
-	    <text x="20" y="20" width="190" height="100">
-	    	<text font="letterica18" color="ui_6" complex_mode="1" align="l" vert_align="t"/>
-	    </text>
-	</msg_wnd>
 </w>
