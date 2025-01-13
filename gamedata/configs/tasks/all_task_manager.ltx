@@ -1,0 +1,25 @@
+; Выдача заданий: =give_task(тип_задания:ид_задания:группировка)
+
+#include "tm\tm_*.ltx"
+
+[hide_from_surge]
+icon = ui_inGame2_Vibros
+prior = 20
+title_functor = surge_task_title
+descr_functor = surge_task_descr
+target_functor = surge_task_target
+;dont_send_update_news = true
+condlist_0 = {=surge_complete()} complete
+condlist_1 = {!actor_alive()} fail
+
+;AtmosFear Psi Storm
+[hide_from_psi_storm]
+icon = ui_inGame2_psi_storm
+prior = 20
+title_functor = psi_storm_task_title
+descr_functor = psi_storm_task_descr
+target_functor = psi_storm_task_target
+;dont_send_update_news = true
+condlist_0 = {=psi_storm_complete()} complete
+condlist_1 = {!actor_alive()} fail
+
