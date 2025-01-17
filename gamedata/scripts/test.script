@@ -1,0 +1,17 @@
+function add_text(obj)
+    return game.translate_string("st_open")
+end
+
+function add_text_weight(obj)
+    return game.translate_string("st_open")
+end
+
+function change_description(obj)
+    obj:update_inventory_info("1", true)
+    obj:set_mode(1)
+end
+
+function change_weight(obj)
+    obj:update_weight("1")
+    obj:set_mode(2)
+end
