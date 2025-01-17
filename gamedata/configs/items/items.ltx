@@ -9,21 +9,28 @@ script_binding 							 = bind_item.bind
 $spawn                                   = "food and drugs\bread"
 visual                                   = dynamics\devices\dev_bred\dev_bred.ogf
 description                              = st_bread_descr
-description2                             = st_conserva_descr
+description1                             = st_conserva_descr
 
 inv_name                                 = st_bread
 inv_name_short                           = st_bread
 
-use1_functor                             = test.change_description
-use1_text                                = st_open
+use1_functor                             = test.add_text
+use1_functor_mode                        = 0
+use1_action_functor                      = test.change_description
 
-inv_weight                               = 0.3 ;0.2               
+use2_functor                             = test.add_text_weight
+use2_functor_mode                        = 1
+use2_action_functor                      = test.change_weight
+
+inv_weight                               = 0.3 ;0.2 
+inv_weight1                              = 1.0
 
 inv_grid_width                           = 1
 inv_grid_height                          = 1
 inv_grid_x                               = 18
 inv_grid_y                               = 1
 cost                                     = 150
+cost1                                    = 10000
 
 attach_angle_offset                      = -0.287979, 1.560923, 1.544060
 attach_position_offset                   = 0.096910, -0.013594, 0.107925
@@ -38,6 +45,7 @@ angle_offset                             = 1.570790,1.570790,3.92699
 boost_time                               = 30.0
 boost_health_restore                     = 0.0002
 eat_satiety                              = 0.6
+eat_thirst                               = -5.0
 eat_alcohol                              = -0.03
 
 use_sound                                = interface\inv_food
@@ -92,6 +100,7 @@ cost                                     = 250
 boost_time                               = 50.0
 boost_health_restore                     = 0.0002
 eat_satiety                              = 1
+eat_thirst                               = 0
 eat_alcohol                              = -0.05
 
 attach_angle_offset                      = 0.440521, 1.378287, -0.644026
@@ -138,6 +147,7 @@ boost_time                               = 120.0
 boost_radiation_restore                  = 0.001
 eat_alcohol                              = 0.1
 eat_satiety                              = -0.2
+eat_thirst                               = 0
 
 use_sound                                = interface\inv_vodka
 
@@ -248,6 +258,7 @@ boost_power_restore                      = 0.005 ;0.001
 
 eat_alcohol                              = 0.0
 eat_satiety                              = 0.0
+eat_thirst                               = 0.5
 
 use_sound                                = interface\inv_softdrink
 empty_weight                             = 0.01
@@ -786,6 +797,7 @@ auto_attach                              = false
 ; eatable item
 eat_health                               = 0
 eat_satiety                              = 0
+eat_thirst                               = 0
 eat_power                                = 0
 eat_radiation                            = 0
 eat_alcohol                              = 0
