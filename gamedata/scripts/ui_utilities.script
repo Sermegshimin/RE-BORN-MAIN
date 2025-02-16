@@ -1,0 +1,49 @@
+--[[ 
+The script is authored by DrSergei 
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
+(It is free to use/modify, the only requirement is to keep this notice)
+--]]
+
+qualities = {
+    "bad", "normal", "good", "excellent"
+}
+
+local clr_g  = utils_xml.get_color("d_green")
+local clr_y  = utils_xml.get_color("yellow")
+local clr_o  = utils_xml.get_color("d_orange")
+local clr_r  = utils_xml.get_color("d_red")
+
+local clr_b  = utils_xml.get_color("d_cyan")
+local clr_b1 = utils_xml.get_color("pda_blue")
+local clr_b2 = utils_xml.get_color("d_blue")
+local clr_p  = utils_xml.get_color("d_purple")
+
+local clr_w  = utils_xml.get_color("pda_white")
+
+local clr_1  = utils_xml.get_color("ui_gray_2")
+local clr_2  = utils_xml.get_color("ui_gray_1")
+
+local dot = game.translate_string("st_common_dot")
+
+math_floor = math.floor
+
+function round_100(num)
+  return math_floor(num * 100 + 0.5)
+end
+
+-- CALLED FROM ENGINE!!!
+function add_to_description(obj, description)
+    local sec = obj:section()
+    local cls = system_ini():r_string_ex(sec,"class")
+    local str = "\\n"
+    
+    if (cls == "S_MUTP_E") then
+        str = str .. clr_r .. dot .. " Quality: " .. qualities[obj:get_quality()] .. "\\n"
+        str = str .. clr_g .. dot .. " Freshness: " .. tostring(round_100(obj:get_freshness())) .. "%\\n"
+    end
+    if (cls = "S_MUTP_G") then
+        str = str .. clr_r .. dot .. " Quality: " .. qualities[obj:get_quality()] .. "\\n"
+    end
+
+    return (description .. str)
+end
