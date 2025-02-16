@@ -1,0 +1,116 @@
+--[[ 
+The script is authored by DrSergei 
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
+(It is free to use/modify, the only requirement is to keep this notice)
+--]]
+
+-- The script's purpose is to set quality and freshness property to mutant parts
+-- It uses new engine classes for mutant parts: CEatableMutantPartItem, CGeneralMutantPartItem
+-- The difference between these 2 classes is that the first one has m_Freshness property used for rot mechanic
+
+math_random = math.random
+
+quality_chance_table = {
+    1, 1, 1, 1, 2, 2, 2, 3, 3, 4
+}
+
+function set_random_quality(obj) 
+    -- 0 - no quality
+    local quality = quality_chance_table[math_random(1, #quality_chance_table)]
+    
+    obj:set_quality(quality)
+end
+
+function rot(obj)
+    obj:update_freshness(-0.01)
+end
+
+-- binder for eatable mutant parts --------------------------------------------------------------------
+
+function bind_eatable(obj)
+    obj:bind_object(mutpart_binder_e(obj))
+end
+
+class "mutpart_binder_e" (object_binder)
+
+function mutpart_binder_e:__init(obj) super(obj)
+    self.first_update = false
+    set_random_quality(obj)
+end
+
+local rot_rate = 5000
+
+function mutpart_binder_e:update(delta)
+    object_binder.update(self, delta)
+
+    local tg = time_global()
+
+    local obj = self.object
+    if (not self.first_update) then
+        self.last_update = tg + rot_rate
+        self.first_update = true
+    end
+
+    if tg < self.last_update then return end
+
+	self.last_update = tg + rot_rate
+
+    rot(obj)
+end
+
+function mutpart_binder_e:reload(section)
+    object_binder.reload(self, section)
+end
+
+function mutpart_binder_e:reinit()
+    object_binder.reinit(self)
+end
+
+function mutpart_binder_e:net_spawn(se_abstract)
+    if not(object_binder.net_spawn(self, se_abstract)) then
+        return false
+    end
+    if (se_abstract.remaining_uses and se_abstract.remaining_uses > 0 and se_abstract.remaining_uses <= self.object:get_max_uses()) then
+		self.object:set_remaining_uses(tonumber(se_abstract.remaining_uses) or 1)
+	end
+    return true
+end
+
+function mutpart_binder_e:net_destroy()
+	object_binder.net_destroy(self)
+end
+
+-- binder for general mutant parts -------------------------------------------------------------
+
+function bind_general(obj)
+    obj:bind_object(mutpart_binder_g(obj))
+end
+
+class "mutpart_binder_g" (object_binder)
+
+function mutpart_binder_g:__init(obj) super(obj)
+    set_random_quality(obj)
+end
+
+function mutpart_binder_g:update(delta)
+    object_binder.update(self, delta)
+end
+
+function mutpart_binder_g:reload(section)
+    object_binder.reload(self, section)
+end
+
+function mutpart_binder_g:reinit()
+    object_binder.reinit(self)
+end
+
+function mutpart_binder_g:net_spawn(se_abstract)
+    if not(object_binder.net_spawn(self, se_abstract)) then
+        return false
+    end
+    return true
+end
+
+function mutpart_binder_g:net_destroy()
+	object_binder.net_destroy(self)
+end
