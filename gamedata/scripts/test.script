@@ -7,11 +7,9 @@ function add_text_weight(obj)
 end
 
 function change_description(obj)
-    obj:update_inventory_info("1", true)
     obj:set_mode(1)
 end
 
 function change_weight(obj)
-    obj:update_weight("1")
     obj:set_mode(2)
 end
