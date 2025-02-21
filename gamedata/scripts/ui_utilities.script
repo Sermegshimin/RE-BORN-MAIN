@@ -41,7 +41,7 @@ function add_to_description(obj, description)
         str = str .. clr_r .. dot .. " Quality: " .. qualities[obj:get_quality()] .. "\\n"
         str = str .. clr_g .. dot .. " Freshness: " .. tostring(round_100(obj:get_freshness())) .. "%\\n"
     end
-    if (cls = "S_MUTP_G") then
+    if (cls == "S_MUTP_G") then
         str = str .. clr_r .. dot .. " Quality: " .. qualities[obj:get_quality()] .. "\\n"
     end
 
